@@ -8,16 +8,14 @@
   font-weight: 400;
 
   color-scheme: dark;
-  /* color: rgba(255, 255, 255, 0.87);
-  background-color: #000000; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* --background: 0 0% 100%; */
-  /* --foreground: 222.2 47.4% 11.2%; */
+  --background: 0 0% 100%;
+  --foreground: 222.2 47.4% 11.2%;
   --muted: 210 40% 96.1%;
   --muted-foreground: 215.4 16.3% 46.9%;
   --card: 0 0% 100%;
