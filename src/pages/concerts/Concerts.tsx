@@ -12,6 +12,18 @@ import { queryClient } from "@/hooks/react-query/queryClient";
 import { useToast } from "@/components/ui/use-toast";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
+type PartialRecord<K extends keyof any, T> = {
+  [P in K]?: T;
+};
+
+export const concertPropertyName: PartialRecord<keyof Concert, string> = {
+  name: "공연이름",
+  date: "날짜",
+  place: "장소",
+  ticket_date: "티켓날짜",
+  ticket_place: "티켓장소",
+};
+
 export function Concerts() {
   const [openEditDialog, setOpenEditDialog] = useState<boolean>(false);
   const [openImage, setOpenImage] = useState<boolean | string>(false);
@@ -24,6 +36,7 @@ export function Concerts() {
     queryKey: [queryKeys.concert],
     queryFn: async () => await getConcertList(params),
   });
+  
   const deleteConcertMutation = useMutation({
     mutationFn: async (idx: number) => await deleteConcert(idx),
     onSuccess: () => {
@@ -63,18 +76,6 @@ export function Concerts() {
       });
     },
   });
-
-  type PartialRecord<K extends keyof any, T> = {
-    [P in K]?: T;
-  };
-
-  const concertPropertyName: PartialRecord<keyof Concert, string> = {
-    name: "공연이름",
-    date: "날짜",
-    place: "장소",
-    ticket_date: "티켓날짜",
-    ticket_place: "티켓장소",
-  };
   useEffect(() => {
     queryClient.invalidateQueries({ queryKey: [queryKeys.concert] });
   }, [query]);
