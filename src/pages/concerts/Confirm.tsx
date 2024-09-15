@@ -22,10 +22,8 @@ const Confirm = () => {
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
 
-  const [openEditDialog, setOpenEditDialog] = useState<boolean>(false);
-  const [openImage, setOpenImage] = useState<boolean | string>(false);
   const [editConcertInput, setEditConcertInput] = useState<Partial<Concert>>({});
-  const [query, setQuery] = useState<string>("WHERE confirmed=true");
+  const [query] = useState<string>("WHERE confirmed=true");
   const params = { query: query };
   const { toast } = useToast();
 
